@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Service_Request__c</fullName>
+    <description>Service Request associated with this service log.</description>
+    <inlineHelpText>Select the service request for which this action was performed.</inlineHelpText>
+    <label>Service Request</label>
+    <referenceTo>Service_Request__c</referenceTo>
+    <relationshipLabel>Service Logs</relationshipLabel>
+    <relationshipName>Service_Logs</relationshipName>
+    <relationshipOrder>0</relationshipOrder>
+    <reparentableMasterDetail>false</reparentableMasterDetail>
+    <trackTrending>false</trackTrending>
+    <type>MasterDetail</type>
+    <writeRequiresMasterRead>false</writeRequiresMasterRead>
+</CustomField>
