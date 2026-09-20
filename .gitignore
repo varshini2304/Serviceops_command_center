@@ -1,48 +1,90 @@
-# This file is used for Git repositories to specify intentionally untracked files that Git should ignore. 
-# If you are not using git, you can delete this file. For more information see: https://git-scm.com/docs/gitignore
-# For useful gitignore templates see: https://github.com/github/gitignore
-
-# Salesforce cache
+# ==========================================
+# Salesforce DX & CLI Artifacts
+# ==========================================
 .sf/
 .sfdx/
 .localdevserver/
 deploy-options.json
+.dist/
+dist/
 
-# LWC VSCode autocomplete
+# ==========================================
+# LWC & Development Cache
+# ==========================================
 **/lwc/jsconfig.json
+.pmdCache
+.eslintcache
+.prettiercache
 
-# LWC Jest coverage reports
+# ==========================================
+# Dependencies
+# ==========================================
+node_modules/
+.pnp
+.pnp.js
+
+# ==========================================
+# Testing & Coverage
+# ==========================================
 coverage/
+.nyc_output/
+*.lcov
 
-# Logs
-logs
+# ==========================================
+# Logs & Debugging
+# ==========================================
+logs/
 *.log
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+pnpm-debug.log*
 
-# Dependency directories
-node_modules/
+# ==========================================
+# Environment & Local Secrets
+# ==========================================
+.env
+.env.local
+.env.*.local
+*.env
 
-# ApexPMD cache
-.pmdCache
+# ==========================================
+# IDE & Editor Configurations
+# ==========================================
+.idea/
+*.sublime-project
+*.sublime-workspace
 
-# Eslint cache
-.eslintcache
+# VS Code (preserve team shared configs)
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+*.code-workspace
 
-# MacOS system files
+# ==========================================
+# Operating System Files
+# ==========================================
+# macOS
 .DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
 
-# Windows system files
+# Windows
 Thumbs.db
 ehthumbs.db
 [Dd]esktop.ini
 $RECYCLE.BIN/
 
-# Local environment variables
-.env
+# Linux
+*~
 
-# Python Salesforce Functions
+# ==========================================
+# Python / Salesforce Functions (if applicable)
+# ==========================================
 **/__pycache__/
 **/.venv/
 **/venv/
