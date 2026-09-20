@@ -1,0 +1,59 @@
+<template>
+    <lightning-card title="ServiceOps Command Center" icon-name="standard:service_request">
+        <div class="slds-p-around_medium">
+
+            <lightning-input type="search" label="Search Service Requests"
+                placeholder="Search by subject, status, priority..." value={searchTerm} onchange={handleSearch}>
+            </lightning-input>
+
+            <div class="slds-m-top_medium">
+
+                <template if:true={requests}>
+                    <template for:each={requests} for:item="request">
+
+                        <article key={request.Id} class="slds-box slds-m-bottom_small">
+
+                            <div class="slds-grid slds-wrap">
+
+                                <div class="slds-size_1-of-1">
+                                    <h2 class="slds-text-heading_small">
+                                        {request.Subject__c}
+                                    </h2>
+                                </div>
+
+                                <div class="slds-size_1-of-2 slds-p-top_small">
+                                    <strong>Status:</strong>
+                                    {request.Status__c}
+                                </div>
+
+                                <div class="slds-size_1-of-2 slds-p-top_small">
+                                    <strong>Priority:</strong>
+                                    {request.Priority__c}
+                                </div>
+
+                                <div class="slds-size_1-of-2 slds-p-top_small">
+                                    <strong>Category:</strong>
+                                    {request.Category__c}
+                                </div>
+
+                                <div class="slds-size_1-of-2 slds-p-top_small">
+                                    <strong>Escalated:</strong>
+                                    {request.Is_Escalated__c}
+                                </div>
+
+                            </div>
+
+                        </article>
+
+                    </template>
+                </template>
+
+                <template if:false={requests}>
+                    <p>No service requests found.</p>
+                </template>
+
+            </div>
+
+        </div>
+    </lightning-card>
+</template>
