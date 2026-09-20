@@ -11,6 +11,7 @@
 
 ## Table of Contents
 
+- [🚀 Quick Start: How to Run on Any Machine](#-quick-start-how-to-run-on-any-machine)
 - [Overview](#overview)
 - [Key Features](#key-features)
 - [Architecture & Data Model](#architecture--data-model)
@@ -26,8 +27,55 @@
   - [Running LWC Unit Tests](#running-lwc-unit-tests)
   - [Running Apex Tests](#running-apex-tests)
   - [Code Formatting and Linting](#code-formatting-and-linting)
-- [Useful Salesforce CLI Commands](#useful-salesforce-cli-commands)
+- [Useful Salesforce CLI & npm Commands](#useful-salesforce-cli--npm-commands)
 - [License](#license)
+
+---
+
+## 🚀 Quick Start: How to Run on Any Machine
+
+If you are setting up this repository on a new laptop or machine, follow these steps:
+
+### 1. Prerequisites
+Make sure you have installed:
+- **[Git](https://git-scm.com/)**
+- **[Node.js (v18+)](https://nodejs.org/)**
+- **[Salesforce CLI (`sf`)](https://developer.salesforce.com/tools/salesforcecli)**
+
+### 2. Step-by-Step Commands
+
+```bash
+# Step 1: Clone the repository
+git clone https://github.com/varshini2304/Serviceops_command_center.git
+
+# Step 2: Navigate into the project folder
+cd serviceops-command-center
+
+# Step 3: Install all dependencies (Jest testing framework, ESLint, Prettier)
+npm install
+
+# Step 4: Authorize your Salesforce Org (Dev Hub, Sandbox, or Developer Edition)
+# This will open a browser window to log in
+sf org login web -a my-serviceops-org --set-default
+
+# Step 5: Deploy all project metadata (Custom Objects, Apex classes, Triggers, LWC)
+npm run deploy
+# (or: sf project deploy start)
+
+# Step 6: Open your Salesforce Org in the browser
+npm run org:open
+# (or: sf org open)
+```
+
+### 3. Verify the Setup
+
+```bash
+# Run LWC Jest unit tests
+npm run test
+
+# Run Apex unit tests with code coverage
+npm run test:apex
+```
 
 ---
 
@@ -286,16 +334,20 @@ npm run lint
 
 ---
 
-## Useful Salesforce CLI Commands
+## Useful Salesforce CLI & npm Commands
 
-| Command | Description |
-|---|---|
-| `sf project deploy start` | Deploys source metadata to the default org |
-| `sf project retrieve start` | Retrieves source metadata from the default org |
-| `sf apex run` | Executes anonymous Apex from terminal or file |
-| `sf apex run test` | Runs Apex test classes and shows code coverage |
-| `sf org open` | Opens the default org in your browser |
-| `sf org list` | Lists all authorized Salesforce orgs |
+| npm Command | Salesforce CLI Equivalent | Description |
+|---|---|---|
+| `npm run deploy` | `sf project deploy start` | Deploys source metadata to default org |
+| `npm run org:open` | `sf org open` | Opens default org in your browser |
+| `npm run test` | `npm run test:unit` | Runs LWC Jest unit tests |
+| `npm run test:apex` | `sf apex run test --code-coverage` | Runs Apex test classes with code coverage |
+| `npm run lint` | `eslint **/{aura,lwc}/**/*.js` | Lints Lightning Web Components |
+| `npm run prettier` | `prettier --write ...` | Formats all Apex, LWC, and config files |
+| — | `sf org login web` | Authorizes an org via browser login |
+| — | `sf project retrieve start` | Retrieves source metadata from default org |
+| — | `sf apex run` | Executes anonymous Apex from terminal or file |
+| — | `sf org list` | Lists all authorized Salesforce orgs |
 
 ---
 
